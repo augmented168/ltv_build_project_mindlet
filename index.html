@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mindlet - Capture Your Thoughts</title>
+
+  <style>
+    /* GLOBAL RESET / BASIC STYLES */
+    * {
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box; 
+      font-family: Arial, sans-serif;
+    }
+    
+    body {
+      background-color: #FBFBFB;
+      color: #333;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+    
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* NAVIGATION */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      background-color: #FFFFFF;
+      box-shadow: 0 0 8px rgba(0,0,0,0.06);
+    }
+    
+    nav .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #5865F2;
+    }
+    
+    nav ul {
+      list-style-type: none;
+      display: flex;
+      gap: 1rem;
+    }
+    
+    nav li {
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 4rem 2rem 3rem;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      color: #222;
+    }
+
+    .hero p {
+      max-width: 600px;
+      margin-bottom: 2rem;
+      font-size: 1.125rem;
+      color: #666;
+    }
+
+    .hero button {
+      background-color: #5865F2;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .hero button:hover {
+      background-color: #4751c9;
+    }
+
+    /* FEATURES SECTION */
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      padding: 3rem 2rem;
+      background-color: #FFF;
+    }
+
+    .feature-card {
+      background-color: #FAFAFF;
+      border-radius: 6px;
+      padding: 2rem;
+      text-align: center;
+      max-width: 280px;
+      flex: 1 1 280px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.03);
+    }
+
+    .feature-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+
+    .feature-card p {
+      font-size: 1rem;
+      color: #666;
+    }
+
+    /* CTA SECTION */
+    .cta {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+
+    .cta h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .cta p {
+      max-width: 600px;
+      margin-bottom: 2rem;
+      color: #555;
+    }
+
+    .cta button {
+      background-color: #E91E63;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .cta button:hover {
+      background-color: #c31453;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #FFFFFF;
+      color: #777;
+      font-size: 0.875rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 1.75rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+      .feature-card {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="logo">Mindlet</div>
+    <ul>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#cta">Get Started</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <h1>Welcome to Mindlet</h1>
+    <p>Capture your ideas and organize them effortlessly—even when you only have minutes. Designed for busy people juggling life, work, and big dreams.</p>
+    <button onclick="alert('Sign up flow coming soon!')">Sign Up Free</button>
+  </section>
+
+  <!-- FEATURES SECTION -->
+  <section id="features" class="features">
+    <div class="feature-card">
+      <h3>Quick Capture</h3>
+      <p>Record your unstructured thoughts via voice, text, or transcription—no fuss, no wasted time.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Auto-Organization</h3>
+      <p>Mindlet transforms scattered ideas into neat lists, daily highlights, and actionable tasks.</p>
+    </div>
+    <div class="feature-card">
+      <h3>To-Do Extraction</h3>
+      <p>Our AI spots to-dos and reminders hidden in your notes and adds them to your task list instantly.</p>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section id="cta" class="cta">
+    <h2>Ready to Reclaim Your Mental Space?</h2>
+    <p>Mindlet helps turn your brain dumps into organized insight. Stop losing your best ideas in the chaos. Join our waitlist today!</p>
+    <button onclick="alert('Waitlist sign up coming soon!')">Join the Waitlist</button>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © <span id="year"></span> Mindlet. All rights reserved.
+  </footer>
+
+  <!-- Optional small JS to update year -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
