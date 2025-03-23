@@ -123,6 +123,35 @@
       color: #666;
     }
 
+    /* NEW FEATURE HIGHLIGHTS */
+    .collab-section, .ai-section {
+      background-color: #FBFBFF;
+      padding: 3rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1.5rem;
+    }
+
+    .collab-section h2, .ai-section h2 {
+      font-size: 1.8rem;
+      color: #222;
+    }
+
+    .collab-section p, .ai-section p {
+      max-width: 700px;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    .collab-section img, .ai-section img {
+      width: 80%;
+      max-width: 400px;
+      border-radius: 6px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
     /* CTA SECTION */
     .cta {
       display: flex;
@@ -177,6 +206,13 @@
       .feature-card {
         max-width: 100%;
       }
+      .collab-section, .ai-section {
+        padding: 2rem 1rem;
+      }
+      .collab-section img, .ai-section img {
+        width: 100%;
+        max-width: 320px;
+      }
     }
   </style>
 </head>
@@ -188,6 +224,8 @@
     <div class="logo">Mindlet</div>
     <ul>
       <li><a href="#features">Features</a></li>
+      <li><a href="#collab">Collaboration</a></li>
+      <li><a href="#ai">AI Summaries</a></li>
       <li><a href="#cta">Get Started</a></li>
     </ul>
   </nav>
@@ -195,7 +233,7 @@
   <!-- HERO SECTION -->
   <section class="hero">
     <h1>Welcome to Mindlet</h1>
-    <p>Capture your ideas and organize them effortlessly—even when you only have minutes. Designed for busy people juggling life, work, and big dreams.</p>
+    <p>Capture your ideas and organize them effortlessly—even when you only have minutes. Designed for busy people juggling life, work, and big dreams. Now with collaboration and AI-driven summaries.</p>
     <button onclick="alert('Sign up flow coming soon!')">Sign Up Free</button>
   </section>
 
@@ -213,6 +251,32 @@
       <h3>To-Do Extraction</h3>
       <p>Our AI spots to-dos and reminders hidden in your notes and adds them to your task list instantly.</p>
     </div>
+    <div class="feature-card">
+      <h3>Multi-Range Queries</h3>
+      <p>Filter and review your notes by days, weeks, or months—no matter how busy your life gets.</p>
+    </div>
+  </section>
+
+  <!-- COLLABORATION SECTION -->
+  <section id="collab" class="collab-section">
+    <h2>Collaboration & Sharing</h2>
+    <p>
+      Share your Mindlet notes, ideas, and tasks with others—so you can build or brainstorm together. 
+      Invite partners, friends, or team members to specific notes and to-dos, or let them leave feedback with ease.
+    </p>
+    <!-- Placeholder image link, replace with your own -->
+    <img src="https://via.placeholder.com/400x250?text=Collaboration+Screenshot" alt="Collaboration Screenshot">
+  </section>
+
+  <!-- AI-POWERED SUMMARIES SECTION -->
+  <section id="ai" class="ai-section">
+    <h2>AI-Powered Summaries</h2>
+    <p>
+      Our intelligent engine condenses your brain dumps into concise, bullet-pointed summaries. 
+      Instantly review each day’s highlight reel without combing through endless text. Stay focused on what truly matters.
+    </p>
+    <!-- Placeholder image link, replace with your own -->
+    <img src="https://via.placeholder.com/400x250?text=AI+Summary+Screenshot" alt="AI Summary Screenshot">
   </section>
 
   <!-- CTA SECTION -->
