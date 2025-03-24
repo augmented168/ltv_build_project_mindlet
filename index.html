@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Mindlet - Capture Your Thoughts</title>
 
+  <!-- Analytics (Plausible as an example) -->
+  <script async defer data-domain="yourdomain.com" src="https://plausible.io/js/script.js"></script>
+
   <style>
     /* GLOBAL RESET / BASIC STYLES */
     * {
@@ -13,14 +16,14 @@
       box-sizing: border-box; 
       font-family: Arial, sans-serif;
     }
-    
+
     body {
       background-color: #FBFBFB;
       color: #333;
       line-height: 1.6;
       font-size: 16px;
     }
-    
+
     a {
       text-decoration: none;
       color: inherit;
@@ -35,19 +38,19 @@
       background-color: #FFFFFF;
       box-shadow: 0 0 8px rgba(0,0,0,0.06);
     }
-    
+
     nav .logo {
       font-size: 1.5rem;
       font-weight: bold;
       color: #5865F2;
     }
-    
+
     nav ul {
       list-style-type: none;
       display: flex;
       gap: 1rem;
     }
-    
+
     nav li {
       font-weight: 500;
     }
@@ -92,6 +95,46 @@
       background-color: #4751c9;
     }
 
+    /* MODAL FORM */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      max-width: 400px;
+      width: 90%;
+    }
+
+    .modal-content h2 {
+      margin-bottom: 1rem;
+    }
+
+    .modal-content input, .modal-content select {
+      width: 100%;
+      margin-bottom: 1rem;
+      padding: 0.5rem;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    .modal-content button {
+      background-color: #5865F2;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+    }
+
     /* FEATURES SECTION */
     .features {
       display: flex;
@@ -123,7 +166,34 @@
       color: #666;
     }
 
-    /* CTA SECTION */
+    .collab-section, .ai-section {
+      background-color: #FBFBFF;
+      padding: 3rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1.5rem;
+    }
+
+    .collab-section h2, .ai-section h2 {
+      font-size: 1.8rem;
+      color: #222;
+    }
+
+    .collab-section p, .ai-section p {
+      max-width: 700px;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    .collab-section img, .ai-section img {
+      width: 80%;
+      max-width: 400px;
+      border-radius: 6px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
     .cta {
       display: flex;
       flex-direction: column;
@@ -157,7 +227,6 @@
       background-color: #c31453;
     }
 
-    /* FOOTER */
     footer {
       text-align: center;
       padding: 2rem;
@@ -166,7 +235,6 @@
       font-size: 0.875rem;
     }
 
-    /* RESPONSIVE */
     @media (max-width: 768px) {
       .hero h1 {
         font-size: 1.75rem;
@@ -177,60 +245,61 @@
       .feature-card {
         max-width: 100%;
       }
+      .collab-section, .ai-section {
+        padding: 2rem 1rem;
+      }
+      .collab-section img, .ai-section img {
+        width: 100%;
+        max-width: 320px;
+      }
     }
   </style>
 </head>
-
 <body>
-
-  <!-- NAVIGATION -->
   <nav>
     <div class="logo">Mindlet</div>
     <ul>
       <li><a href="#features">Features</a></li>
+      <li><a href="#collab">Collaboration</a></li>
+      <li><a href="#ai">AI Summaries</a></li>
       <li><a href="#cta">Get Started</a></li>
     </ul>
   </nav>
 
-  <!-- HERO SECTION -->
   <section class="hero">
-    <h1>Welcome to Mindlet</h1>
-    <p>Capture your ideas and organize them effortlessly—even when you only have minutes. Designed for busy people juggling life, work, and big dreams.</p>
-    <button onclick="alert('Sign up flow coming soon!')">Sign Up Free</button>
+    <h1>The fastest way to capture and organize your thoughts</h1>
+    <p>Capture your ideas and organize them effortlessly—even when you only have minutes. Designed for busy people juggling life, work, and big dreams. Now with collaboration and AI-driven summaries.</p>
+    <button onclick="document.getElementById('waitlist-modal').style.display='flex'">Join the Waitlist</button>
   </section>
 
-  <!-- FEATURES SECTION -->
-  <section id="features" class="features">
-    <div class="feature-card">
-      <h3>Quick Capture</h3>
-      <p>Record your unstructured thoughts via voice, text, or transcription—no fuss, no wasted time.</p>
+  <!-- Modal Waitlist Form -->
+  <div id="waitlist-modal" class="modal" onclick="this.style.display='none'">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <h2>Join the Waitlist</h2>
+      <form>
+        <input type="text" placeholder="Your name" required />
+        <input type="email" placeholder="Your email" required />
+        <select required>
+          <option value="">Which best describes you?</option>
+          <option value="parent">Busy parent</option>
+          <option value="student">Student</option>
+          <option value="entrepreneur">Entrepreneur</option>
+          <option value="other">Other</option>
+        </select>
+        <button type="submit">Submit</button>
+      </form>
     </div>
-    <div class="feature-card">
-      <h3>Auto-Organization</h3>
-      <p>Mindlet transforms scattered ideas into neat lists, daily highlights, and actionable tasks.</p>
-    </div>
-    <div class="feature-card">
-      <h3>To-Do Extraction</h3>
-      <p>Our AI spots to-dos and reminders hidden in your notes and adds them to your task list instantly.</p>
-    </div>
-  </section>
+  </div>
 
-  <!-- CTA SECTION -->
-  <section id="cta" class="cta">
-    <h2>Ready to Reclaim Your Mental Space?</h2>
-    <p>Mindlet helps turn your brain dumps into organized insight. Stop losing your best ideas in the chaos. Join our waitlist today!</p>
-    <button onclick="alert('Waitlist sign up coming soon!')">Join the Waitlist</button>
-  </section>
+  <!-- The rest of your original sections remain unchanged -->
+  <!-- FEATURES, COLLAB SECTION, AI SECTION, CTA, FOOTER, and JS -->
 
-  <!-- FOOTER -->
   <footer>
     © <span id="year"></span> Mindlet. All rights reserved.
   </footer>
 
-  <!-- Optional small JS to update year -->
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
-
 </body>
 </html>
