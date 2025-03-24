@@ -2,31 +2,42 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mindlet - Capture Your Thoughts</title>
 
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
   <style>
-    /* GLOBAL RESET / BASIC STYLES */
     * {
-      margin: 0; 
-      padding: 0; 
-      box-sizing: border-box; 
-      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
     }
-    
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       background-color: #FBFBFB;
       color: #333;
       line-height: 1.6;
       font-size: 16px;
     }
-    
+
     a {
       text-decoration: none;
       color: inherit;
     }
 
-    /* NAVIGATION */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
     nav {
       display: flex;
       align-items: center;
@@ -35,19 +46,19 @@
       background-color: #FFFFFF;
       box-shadow: 0 0 8px rgba(0,0,0,0.06);
     }
-    
+
     nav .logo {
       font-size: 1.5rem;
       font-weight: bold;
       color: #5865F2;
     }
-    
+
     nav ul {
       list-style-type: none;
       display: flex;
       gap: 1rem;
     }
-    
+
     nav li {
       font-weight: 500;
     }
@@ -56,17 +67,16 @@
       text-decoration: underline;
     }
 
-    /* HERO SECTION */
     .hero {
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      padding: 4rem 2rem 3rem;
+      padding: 5rem 2rem 4rem;
     }
 
     .hero h1 {
-      font-size: 2.2rem;
+      font-size: 2.5rem;
       margin-bottom: 1rem;
       color: #222;
     }
@@ -75,7 +85,7 @@
       max-width: 600px;
       margin-bottom: 2rem;
       font-size: 1.125rem;
-      color: #666;
+      color: #555;
     }
 
     .hero button {
@@ -86,19 +96,29 @@
       padding: 0.75rem 1.5rem;
       font-size: 1rem;
       cursor: pointer;
+      transition: background-color 0.2s ease, transform 0.1s ease;
     }
 
     .hero button:hover {
       background-color: #4751c9;
+      transform: translateY(-2px);
     }
 
-    /* FEATURES SECTION */
+    .hero small {
+      margin-top: 0.75rem;
+      display: block;
+      color: #888;
+    }
+
+    .features, .collab-section, .ai-section, .cta {
+      padding: 4rem 2rem;
+    }
+
     .features {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 2rem;
-      padding: 3rem 2rem;
       background-color: #FFF;
     }
 
@@ -123,15 +143,9 @@
       color: #666;
     }
 
-    /* NEW FEATURE HIGHLIGHTS */
     .collab-section, .ai-section {
       background-color: #FBFBFF;
-      padding: 3rem 2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       text-align: center;
-      gap: 1.5rem;
     }
 
     .collab-section h2, .ai-section h2 {
@@ -143,6 +157,7 @@
       max-width: 700px;
       color: #555;
       line-height: 1.5;
+      margin: 1rem auto 2rem;
     }
 
     .collab-section img, .ai-section img {
@@ -152,13 +167,9 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
 
-    /* CTA SECTION */
     .cta {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      background-color: #fff0f6;
       text-align: center;
-      padding: 3rem 2rem;
     }
 
     .cta h2 {
@@ -168,7 +179,7 @@
 
     .cta p {
       max-width: 600px;
-      margin-bottom: 2rem;
+      margin: 0 auto 2rem;
       color: #555;
     }
 
@@ -180,13 +191,14 @@
       padding: 0.75rem 1.5rem;
       font-size: 1rem;
       cursor: pointer;
+      transition: background-color 0.2s ease, transform 0.1s ease;
     }
 
     .cta button:hover {
       background-color: #c31453;
+      transform: translateY(-2px);
     }
 
-    /* FOOTER */
     footer {
       text-align: center;
       padding: 2rem;
@@ -195,7 +207,6 @@
       font-size: 0.875rem;
     }
 
-    /* RESPONSIVE */
     @media (max-width: 768px) {
       .hero h1 {
         font-size: 1.75rem;
@@ -206,9 +217,6 @@
       .feature-card {
         max-width: 100%;
       }
-      .collab-section, .ai-section {
-        padding: 2rem 1rem;
-      }
       .collab-section img, .ai-section img {
         width: 100%;
         max-width: 320px;
@@ -216,10 +224,7 @@
     }
   </style>
 </head>
-
 <body>
-
-  <!-- NAVIGATION -->
   <nav>
     <div class="logo">Mindlet</div>
     <ul>
@@ -230,15 +235,16 @@
     </ul>
   </nav>
 
-  <!-- HERO SECTION -->
   <section class="hero">
-    <h1>Welcome to Mindlet</h1>
-    <p>Capture your ideas and organize them effortlessly—even when you only have minutes. Designed for busy people juggling life, work, and big dreams. Now with collaboration and AI-driven summaries.</p>
-    <button onclick="alert('Sign up flow coming soon!')">Sign Up Free</button>
+    <div class="container">
+      <h1>Turn Your Brainstorms Into Breakthroughs</h1>
+      <p>Capture fleeting thoughts, organize your mind, and collaborate seamlessly—with AI summaries that save you hours.</p>
+      <button onclick="alert('Sign up flow coming soon!')">Start Free</button>
+      <small>No credit card required</small>
+    </div>
   </section>
 
-  <!-- FEATURES SECTION -->
-  <section id="features" class="features">
+  <section id="features" class="features container">
     <div class="feature-card">
       <h3>Quick Capture</h3>
       <p>Record your unstructured thoughts via voice, text, or transcription—no fuss, no wasted time.</p>
@@ -257,44 +263,36 @@
     </div>
   </section>
 
-  <!-- COLLABORATION SECTION -->
   <section id="collab" class="collab-section">
-    <h2>Collaboration & Sharing</h2>
-    <p>
-      Share your Mindlet notes, ideas, and tasks with others—so you can build or brainstorm together. 
-      Invite partners, friends, or team members to specific notes and to-dos, or let them leave feedback with ease.
-    </p>
-    <!-- Placeholder image link, replace with your own -->
-    <img src="https://via.placeholder.com/400x250?text=Collaboration+Screenshot" alt="Collaboration Screenshot">
+    <div class="container">
+      <h2>Collaboration & Sharing</h2>
+      <p>Share your Mindlet notes, ideas, and tasks with others—so you can build or brainstorm together. Invite partners, friends, or team members to specific notes and to-dos, or let them leave feedback with ease.</p>
+      <img src="https://via.placeholder.com/400x250?text=Collaboration+Screenshot" alt="Collaboration Screenshot">
+    </div>
   </section>
 
-  <!-- AI-POWERED SUMMARIES SECTION -->
   <section id="ai" class="ai-section">
-    <h2>AI-Powered Summaries</h2>
-    <p>
-      Our intelligent engine condenses your brain dumps into concise, bullet-pointed summaries. 
-      Instantly review each day’s highlight reel without combing through endless text. Stay focused on what truly matters.
-    </p>
-    <!-- Placeholder image link, replace with your own -->
-    <img src="https://via.placeholder.com/400x250?text=AI+Summary+Screenshot" alt="AI Summary Screenshot">
+    <div class="container">
+      <h2>AI-Powered Summaries</h2>
+      <p>Our intelligent engine condenses your brain dumps into concise, bullet-pointed summaries. Instantly review each day’s highlight reel without combing through endless text. Stay focused on what truly matters.</p>
+      <img src="https://via.placeholder.com/400x250?text=AI+Summary+Screenshot" alt="AI Summary Screenshot">
+    </div>
   </section>
 
-  <!-- CTA SECTION -->
   <section id="cta" class="cta">
-    <h2>Ready to Reclaim Your Mental Space?</h2>
-    <p>Mindlet helps turn your brain dumps into organized insight. Stop losing your best ideas in the chaos. Join our waitlist today!</p>
-    <button onclick="alert('Waitlist sign up coming soon!')">Join the Waitlist</button>
+    <div class="container">
+      <h2>Ready to Reclaim Your Mental Space?</h2>
+      <p>Mindlet helps turn your brain dumps into organized insight. Stop losing your best ideas in the chaos. Join our waitlist today!</p>
+      <button onclick="alert('Waitlist sign up coming soon!')">Join the Free Beta</button>
+    </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     © <span id="year"></span> Mindlet. All rights reserved.
   </footer>
 
-  <!-- Optional small JS to update year -->
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
-
 </body>
 </html>
